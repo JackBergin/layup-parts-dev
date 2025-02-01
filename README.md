@@ -51,4 +51,8 @@ For the sequence calculator, run:
 python3 question2.py
 ```
 
-It was decided to not use recursion because python has a default recursion limit of 1000. This was a problem for the sequence calculator because the sequence grows exponentially. So, an iterative approach was used instead.
+Question 2 Report:
+
+See sequence_log.txt for the output of the sequence calculator.
+
+The next step in optimizing this code would be to add recursion. It was decided to not use recursion because python has a default recursion limit of 1000. This was a problem for the sequence calculator because the sequence grows exponentially. So, an iterative approach was used instead. 

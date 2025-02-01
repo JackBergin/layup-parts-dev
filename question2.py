@@ -1,4 +1,5 @@
 import logging
+import time  # Add this import at the top with the other imports
 
 logging.basicConfig(
     level=logging.DEBUG,
@@ -50,5 +51,9 @@ def test_layup_sequence():
 test_layup_sequence()
 
 # Compute S(10,000)
+start_time = time.time()
 result = layup_sequence_iterative(10000)
+end_time = time.time()
+execution_time = end_time - start_time
 logging.info(f"S(10000) = {result}")
+logging.info(f"Calculation time: {execution_time:.4f} seconds")
