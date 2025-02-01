@@ -19,14 +19,16 @@ def layup_sequence_iterative(n):
     s1, s2 = 1, 2  # Base cases: S(1) = 1, S(2) = 2
 
     for i in range(3, n + 1):
-        if i % 2 == 0:
+        if i % 2 == 0: # even
             s_next = s2 + s1
-        else:
+        else: # odd
             s_next = 2 * s2 - s1
         s1, s2 = s2, s_next  # Shift values for next iteration
     return s2
 
 def test_layup_sequence():
+    logging.info("Starting test...")
+
     # Base cases
     assert layup_sequence_iterative(1) == 1, "S(1) should be 1"
     logging.debug(f"S(1) = {layup_sequence_iterative(1)}")
@@ -48,12 +50,16 @@ def test_layup_sequence():
     
     logging.info("All tests passed!")
 
-test_layup_sequence()
+def main():
+    test_layup_sequence()
+    
+    # Compute S(10,000)
+    start_time = time.time()
+    result = layup_sequence_iterative(10000)
+    end_time = time.time()
+    execution_time = end_time - start_time
+    logging.info(f"S(10000) = {result}")
+    logging.info(f"Calculation time: {execution_time:.4f} seconds")
 
-# Compute S(10,000)
-start_time = time.time()
-result = layup_sequence_iterative(10000)
-end_time = time.time()
-execution_time = end_time - start_time
-logging.info(f"S(10000) = {result}")
-logging.info(f"Calculation time: {execution_time:.4f} seconds")
+if __name__ == "__main__":
+    main()

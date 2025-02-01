@@ -59,8 +59,13 @@ while running:
     radians = math.radians(yaw)
 
     # Update position based on speed and yaw angle
-    x += speed * math.cos(radians)
-    y -= speed * math.sin(radians)  # Pygame has inverted Y-axis
+    current_x = x + speed * math.cos(radians)
+    current_y = y - speed * math.sin(radians) 
+
+    # Keep plane within borders, accounting for plane size
+    plane_size = 20  # Half the size of the plane surface (40/2)
+    x = max(plane_size, min(current_x, WIDTH - plane_size))
+    y = max(plane_size, min(current_y, HEIGHT - plane_size))
 
     # Store trajectory
     if len(trajectory) > 1000:
